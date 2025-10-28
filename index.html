@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Botones</title>
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="contenedor">
+  <div class="botones">
+    <!-- Botón Mariposas -->
+    <a href="https://play.google.com/store/apps/details?id=com.soft24hours.encyclopedia.butterflies.free.offline&hl=es" class="btn btn-mariposas" target="_blank">
+      <i class="fas fa-bug"></i> Enciclopedia de Mariposas
+    </a>
+
+    <!-- Botón TikTok -->
+    <a href="https://www.tiktok.com/es-419/" class="btn btn-tiktok" target="_blank">
+      <i class="fab fa-tiktok"></i> TikTok
+    </a>
+
+    <!-- Botón Instagram -->
+    <a href="https://www.instagram.com/" class="btn btn-instagram" target="_blank">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+  </div>
+</div>
+
+  <script>
+    // Desvanecer al hacer clic
+    const botones = document.querySelectorAll('.btn');
+    botones.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = this.href;
+        }, 500);
+      });
+    });
+
+    // Desvanecer al regresar
+    window.addEventListener('pageshow', function(event) {
+      document.body.classList.remove('fade-out');
+    });
+  </script>
+</body>
+</html>
