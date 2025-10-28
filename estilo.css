@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  background-image: url('img/Fondo.gif'); /* GIF de mariposas */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+}
+
+/* Capa pastel animada encima del GIF */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.25;
+  animation: pastelBackground 20s infinite ease-in-out;
+  background: linear-gradient(45deg, #ffd1dc, #c1f0f6);
+}
+
+@keyframes pastelBackground {
+  0% {
+    background: linear-gradient(45deg, #d76f87, #42a6b3);
+  }
+  25% {
+    background: linear-gradient(45deg, #72cad6, #66e0a9);
+  }
+  50% {
+    background: linear-gradient(45deg, #4fc791, #f75c6e);
+  }
+  75% {
+    background: linear-gradient(45deg, #e26977, #e58ca1);
+  }
+  100% {
+    background: linear-gradient(45deg, #f61146, #5eb4c0);
+  }
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+.contenedor {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.botones {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Botón base */
+.btn {
+  text-decoration: none;
+  padding: 20px 50px;
+  font-size: 1.5rem;
+  position: relative;
+  margin: 20px;
+  border-radius: 40px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Efecto de luz brillante */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0.6), rgba(255,255,255,0.2));
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+  z-index: 0;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+/* Mariposas */
+.btn-mariposas {
+  background: linear-gradient(to right, #fcbad3, #a2d2ff);
+}
+
+/* TikTok */
+.btn-tiktok {
+  background: linear-gradient(to right, #ee82ee, #00ffff);
+}
+
+/* Instagram */
+.btn-instagram {
+  background: linear-gradient(to right, #f58529, #dd2a7b, #8134af);
+}
